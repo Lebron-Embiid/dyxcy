@@ -1,0 +1,10 @@
+<!--pages/recharge/recharge.wxml-->
+<view class='recharge-box'>
+  <view class='r-title'>充值金额</view>
+  <form bindsubmit='formSubmit'>
+  <view class='r-price'>
+    <text>￥</text><input name='money' type='number'placeholder="请输入金额"></input>
+  </view>
+  <button class='r-query' formType="submit">确认充值</button>
+  </form>
+</view>

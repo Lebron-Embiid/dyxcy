@@ -1,0 +1,13 @@
+<!--pages/attention/attention.wxml-->
+<view class='attention-box'>
+<scroll-view scroll-top="{{scrollTop}}"scroll-y="true"style="height:{{scrollHeight}}px;"
+ bindscrolltolower="bindDownLoad"bindscroll="scroll"bindscrolltoupper="refresh">
+  <view class='atten-item' wx:for="{{attenArr}}" wx:key=''>
+    <image src='{{item.img}}' bindtap='toIndex' data-arid='{{item.arid}}' mode='aspectFill'></image>
+    <view class='aLayer'>
+      <image src='{{item.headImg}}' bindtap='toUser' data-to_userid='{{item.to_userid}}'></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+  </scroll-view>
+</view>

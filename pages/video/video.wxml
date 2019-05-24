@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<view class='video-box'>
+  <video id="myVideo" src="{{post_content}}" controls="{{false}}" autoplay="{{true}}" show-center-play-btn="{{false}}" loop='{{true}}' enable-progress-gesture="{{false}}" show-fullscreen-btn="{{false}}" objectFit="contain" duration='{{timeLen}}' catchtap="play" bindplay='bindPlay' bindpause='bindPause' bindended='ended' bindtouchstart='touchstart' bindtouchmove='touchmove' bindtouchend='touchend' bindtouchcancel='touchcancel' bindtimeupdate='timeupdate'>
+    <!-- <view hidden='{{showBtn}}' class='cover-play'></view>  -->
+    <!-- <view hidden='{{!showBtn}}' class='cover-pause' catchtap="play"></view> -->
+    <cover-view class='video-top'>
+      <!-- <cover-view class='top-voice'>
+        <cover-image src='/images/music.png' class='voice-img'></cover-image>
+        <cover-view class='voice-txt' bindtap='voiceTap' data-id='{{arid}}'>{{voice}}</cover-view>
+        <cover-image bindtap='toSearch' src='/images/search.png' class='voice-search'></cover-image>
+      </cover-view> -->
+      <cover-view class='top-voice'>
+        <cover-image src='/images/music.png' class='voice-img'></cover-image>
+        <cover-view class='voice-txt' >
+          <cover-view wx:for="{{row}}" wx:key="" bindtap='voiceTap' data-id='{{item.id}}' style="top:0" wx:if="{{count != 1}}" animation="{{animationNote}}">{{item.horn}}</cover-view>
+
+          <cover-view wx:for="{{row}}" wx:key="" bindtap='voiceTap' data-id='{{item.id}}' style="top:0" wx:if="{{count == 1}}" >{{item.horn}}</cover-view>
+        
+        </cover-view>
+
+        
+        
+        <!-- <cover-view class='voice-txt' bindtap='voiceTap' wx:if="{{radio_group > 0}}" data-url='{{url}}'>{{commit}}</cover-view> -->
+        <cover-image bindtap='toSearch' src='/images/search.png' class='voice-search'></cover-image>
+      </cover-view>
+
+
+
+      <!-- <cover-view class='top-nav'>
+        <cover-view bindtap='recommendShow' class="{{navCurrent == 0?'active':''}}">推荐</cover-view>
+        <cover-view bindtap='Surrounding' class="{{navCurrent == 1?'active':''}}">周边</cover-view>
+      </cover-view> -->
+    </cover-view>
+    <cover-view class='right-list'>
+      <cover-image class='headImg' bindtap='imgTap' data-id='{{to_userid}}' src='{{avatar}}'></cover-image>
+
+      <!-- 喜欢 -->
+      <cover-view class='list-icon'>
+      <cover-view wx:if="{{love == 1}}">
+      <cover-image bindtap='toLike' data-love='{{love}}' src='/images/index_icon1_on.png'></cover-image>
+      </cover-view>
+      <cover-view wx:else>
+      <cover-image bindtap='toLike'  data-love='{{love}}' src='/images/index_icon1.png'></cover-image>
+      </cover-view>
+        <cover-view>{{post_like}}</cover-view>
+      </cover-view>
+      <!-- 收藏 -->
+      <cover-view class='list-icon'>
+      <cover-view wx:if="{{collectShow == 1}}">
+      <cover-image bindtap='toCollect' data-love='{{collectShow}}' src='/images/index_icon2_on.png'></cover-image>
+      </cover-view>
+      <cover-view wx:else>
+      <cover-image bindtap='toCollect'  data-love='{{collectShow}}' src='/images/index_icon2.png'></cover-image>
+      </cover-view>
+        <cover-view>{{post_collect}}</cover-view>
+      </cover-view>
+
+      <!-- 评论 -->
+      <cover-view class='list-icon' data-id='{{arid}}' data-to_userid='{{to_userid}}' bindtap='toComment'>
+        <cover-image src='/images/index_icon3.png' data-to_userid='{{to_userid}}' data-id='{{arid}}' bindtap='toComment'></cover-image>
+        <cover-view>{{comment_count}}</cover-view>
+      </cover-view>
+      <cover-view class='list-icon' bindtap='toBuy'>
+        <cover-image src='/images/index_icon4.png'></cover-image>
+        <cover-view>购买</cover-view>
+      </cover-view>
+      
+    </cover-view>
+    <cover-view class='left-info'>
+      <cover-view class='info-name'>@{{user_nickname}}</cover-view>
+      <cover-view class='info-detail'>{{post_desc}}</cover-view>
+    </cover-view>
+  </video>
+</view>
+
+    

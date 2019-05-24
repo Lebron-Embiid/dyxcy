@@ -1,0 +1,18 @@
+<!--pages/news/news.wxml-->
+<view class='message-content'>
+  <view class='message-item' wx:for="{{messageArr}}" wx:key="">
+    <view class='mImg'><image src='/images/notice.png' mode='widthFix'></image></view>
+    <view class='mRight'>
+      <view class='mTitle'><view>系统消息:{{item.post_title}}</view><text>{{item.published_time}}</text></view>
+      <view class='mInfo'>{{item.post_content}}</view>
+    </view>
+  </view>
+</view>
+<view class="footer">
+    <loading hidden="{{hasMoreData}}"bindchange="loadingChange">
+      加载中...
+    </loading>
+</view>
+<view class="footer">
+    <view class="loadmore_tips" hidden="{{!text}}">暂无数据</view>
+</view>

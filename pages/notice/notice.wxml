@@ -1,0 +1,11 @@
+<!--pages/notice/notice.wxml-->
+<view class='notice_box'>
+  <view class='notice_item' wx:for="{{noticeLists}}" wx:key="">
+    <view class='notice_head'><image src="{{item.head_img}}"></image></view>
+    <view class='notice_content'>
+      <view class='notice_name'>{{item.name}}</view>
+      <view class='notice_detail'>{{item.detail}}</view>
+      <view class='notice_poster'><image class='poster_img' src='{{item.poster}}' mode="aspectFill"></image><image src='/images/play2.png' class='play_btn'></image></view>
+    </view>
+  </view>
+</view>

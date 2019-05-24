@@ -1,0 +1,31 @@
+<!--pages/fans/fans.wxml-->
+<view class='my-fans' wx:if="{{notComment == ''}}">
+<scroll-view scroll-top="{{scrollTop}}"scroll-y="true"style="height:{{scrollHeight}}px;"
+ bindscrolltolower="bindDownLoad"bindscroll="scroll"bindscrolltoupper="refresh">
+  <view class='fans-item' wx:for="{{fansArr}}" wx:key="">
+    <image src='{{item.headImg}}' bindtap='toUser'  data-id='{{item.uid}}' class='fansImg'></image>
+    <view class='fans-info' >
+      <view class='fans-title'>{{item.userName}}</view>
+      <view class='fans-detail'><text>粉丝:{{item.fans}}</text><text>作品:{{item.work}}</text></view>
+      <view class='fans-profile'>{{item.info}}</view>
+    </view>
+    <view class='fbtn-box'>
+      <!-- 关注 -->
+    <view class='comment-right'>
+      <view wx:if='{{item.fansShow == 0}}'>
+      <button class='fans-btn' bindtap='attenPerson' data-show="{{index}}">关注</button>
+      </view>
+      <view wx:else>
+      <button class='fans-btn fans-img' bindtap='attenPerson' data-show="{{index}}"><image src='/images/already.png'></image></button>
+      </view>
+    </view>
+    </view>
+  </view>
+   </scroll-view>
+</view>
+<view class='my-fans' wx:else></view>
+<view class="footer">
+    <loading hidden="{{hasMoreData}}"bindchange="loadingChange">
+      加载中...
+    </loading>
+</view>

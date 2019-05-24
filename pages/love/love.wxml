@@ -1,0 +1,22 @@
+<!--pages/love/love.wxml-->
+<view class='love-box' wx:if="{{notComment == ''}}">
+<scroll-view scroll-top="{{scrollTop}}"scroll-y="true"style="height:{{scrollHeight}}px;"
+ bindscrolltolower="bindDownLoad"bindscroll="scroll"bindscrolltoupper="refresh">
+  <view class='love-item' wx:for='{{loveArr}}' wx:key=''>
+    <view class='cImg' bindtap='toUser' data-id='{{item.uid}}'><image src='{{item.head}}' mode='widthFix'></image></view>
+    <view class='cCenter' bindtap='toComment' data-id='{{item.object_id}}'>
+      <view class='cTitle'><text>{{item.name}}</text>赞了你的评论</view>
+      <view class='cTime'>{{item.time}}</view>
+    </view>
+    <view class='cRight'>
+      <image src='{{item.img}}' mode='aspectFill' bindtap='toComment' data-id='{{item.object_id}}'></image>
+    </view>
+  </view>
+   </scroll-view>
+</view>
+<view class='love-box' wx:else></view>
+<view class="footer">
+    <loading hidden="{{hasMoreData}}"bindchange="loadingChange">
+      加载中...
+    </loading>
+</view>

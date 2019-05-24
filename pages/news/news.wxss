@@ -1,0 +1,13 @@
+/* pages/news/news.wxss */
+.message-content{
+  background: #fff;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+.footer{
+  text-align: center;
+  padding-top: 36rpx;
+  padding-bottom: 48rpx;
+  font-size: 14px;
+  color: #aaa;
+}

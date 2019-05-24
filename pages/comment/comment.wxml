@@ -1,0 +1,23 @@
+<!--pages/comment/comment.wxml-->
+<view class='comment-box' wx:if="{{notComment == ''}}">
+  <view class='comment-item' wx:for='{{commentArr}}' wx:key=''>
+    <view class='cImg' bindtap='toUser' data-id='{{item.uid}}'><image src='{{item.head}}' mode='widthFix' data-id='{{item.uid}}'></image></view>
+    <view class='cCenter' bindtap='toVideo' data-id='{{item.arid}}'>
+      <view class='cTitle'><text>{{item.name}}</text>评论了你的作品</view>
+      <view class='cInfo'>{{item.info}}</view>
+      <view class='cTime'>{{item.time}}</view>
+    </view>
+    <view class='cRight'>
+      <image src='{{item.img}}' bindtap='toVideo' data-id='{{item.arid}}' mode='aspectFill'></image>
+    </view>
+  </view>
+</view>
+<view class='comment-box' wx:else></view>
+<view class="footer">
+    <loading hidden="{{hasMoreData}}"bindchange="loadingChange">
+      加载中...
+    </loading>
+</view>
+<view class="footer">
+    <view class="loadmore_tips" hidden="{{!text}}">暂无数据</view>
+</view>

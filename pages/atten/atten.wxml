@@ -1,0 +1,16 @@
+<!--pages/atten/atten.wxml-->
+<view class='my-fans' wx:if="{{notComment == ''}}">
+  <view class='fans-item' wx:for="{{attenArr}}" wx:key="">
+    <image src='{{item.headImg}}' class='fansImg' bindtap='toUser' data-id='{{item.to_userid}}'></image>
+    <view class='fans-info' >
+      <view class='fans-title'>{{item.userName}}</view>
+      <view class='fans-detail'><text>粉丝:{{item.fans}}</text><text>作品:{{item.work}}</text></view>
+      <view class='fans-profile'>{{item.info}}</view>
+    </view>
+    <view class='fbtn-box'>
+    <button class='fans-btn' data-id='{{item.to_userid}}' data-idx='{{index}}' bindtap='toConcern' hidden="{{item.isshow}}">关注</button>
+      <button class='fans-btn fans-img' bindtap='delConcern' data-id='{{item.to_userid}}' data-idx="{{index}}" hidden="{{!item.isshow}}"><image src='/images/already.png'></image></button>
+    </view>
+  </view>
+</view>
+<view class='my-fans' wx:else></view>
